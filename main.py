@@ -311,7 +311,7 @@ while True:
 
         if listTeclas[pygame.K_SPACE]: # Verifica se a tecla espaço foi pressionada
             if personagemRect.centery == ALTURA_CHAO: # Verifica se o personagem está no chão
-                gravidade = -30 # Define como negativo para o personagem subir
+                gravidade = -35 # Define como negativo para o personagem subir
                 indexFrameJump = 0 # Reseta o frame do pulo
     else:
         if listTeclas[pygame.K_RETURN]:
