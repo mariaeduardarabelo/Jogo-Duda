@@ -34,7 +34,7 @@ for i in range(4):
     frame = folhaSpritesIdle.subsurface(i * 48, 0, 48, 48)
 
     # Redimensiona o frame para 2 vezes o tamanho original
-    frame = pygame.transform.scale2x(frame)
+    frame = pygame.transform.scale(frame, (288, 288))
 
     # Adiciona o frame na lista de listFramesIdle
     listFramesIdle.append(frame)
@@ -118,7 +118,7 @@ listBgImages = [
     pygame.image.load("Fundo/background 1/2.png").convert_alpha(),
     pygame.image.load("Fundo/background 1/3.png").convert_alpha(),
     pygame.image.load("Fundo/background 1/4.png").convert_alpha(),
-    pygame.image.load("Fundo/background 1/5.png").convert_alpha(),
+    pygame.image.load("Fundo/background 1/5.png").convert_alpha()
 ]
 
 listaBgVelocidades = [1, 3, 7, 9, 10] # Velocidades de cada imagem do plano de fundo
@@ -129,7 +129,7 @@ listaBgPosicoes = [0 for _ in range(len(listBgImages))] # Posições de cada ima
 for i in range(len(listBgImages)):
     listBgImages[i] = pygame.transform.scale(listBgImages[i], tamanhoTela)
 
-ALTURA_CHAO = 485
+ALTURA_CHAO = 550
 velocidadePersonagem = 30
 vidas = 3
 GameOver = False
@@ -227,7 +227,7 @@ while True:
             estaTocandoMusica = False
 
         # Cria o texto para o menu de reiniciar o jogo
-        textoGameOver = fonteTempo.render("JAH ERA!", False, (255, 255, 255))
+        textoGameOver = fonteTempo.render("FIM DE JOGO", False, (255, 255, 255))
         textoReiniciar = fonteTempo.render("APERTE ENTER PARA REINICIAR", False, (255, 255, 255))
 
         # Desenha o menu de reiniciar o jogo na tela
@@ -281,10 +281,10 @@ while True:
     tempoAnimacaoRunn += dt
 
     # Verifica se o tempo de animação do personagem correndo é maior ou igual ao tempo de animação
-    if tempoAnimacaoRunn >= 1 / velocidadeAnimacaoRunn:
+    #if tempoAnimacaoRunn >= 1 / velocidadeAnimacaoRunn:
         # Atualiza o frame do personagem correndo
-        indexFrameRunn = (indexFrameRunn + 1) % len(listFramesRunn)
-        tempoAnimacaoRunn = 0.0
+      #  indexFrameRunn = (indexFrameRunn + 1) % len(listFramesRunn)
+       # tempoAnimacaoRunn = 0.0
 
     tempoAnimacaoDead += dt
 
@@ -321,8 +321,9 @@ while True:
             velocidadePersonagem = 30
             tempoMaximoEntreObstaculos = 3000
             listaObstaculos = []
+
             # Reiniciar o som
-            pygame.mixer.music.play(-1)
+            #pygame.mixer.music.play(-1)
 
     # Gravidade Aumenta
     gravidade += 2
@@ -343,14 +344,14 @@ while True:
         if estaAndando: # Verifica se o personagem está andando
             if velocidadePersonagem < 40:
                 frame = listFramesWalk[indexFrameWalk]
-            if velocidadePersonagem < 50:
-                frame = listFramesRunn[indexFrameRunn]
-            elif velocidadePersonagem < 70:
-                velocidadeAnimacaoRunn = 30
-                frame = listFramesRunn[indexFrameRunn]
-            else:
-                velocidadeAnimacaoRunn = 40
-                frame = listFramesRunn[indexFrameRunn]
+            #if velocidadePersonagem < 50:
+                #frame = listFramesRunn[indexFrameRunn]
+            #elif velocidadePersonagem < 70:
+                #velocidadeAnimacaoRunn = 30
+                #frame = listFramesRunn[indexFrameRunn]
+            #else:
+                #velocidadeAnimacaoRunn = 40
+                #frame = listFramesRunn[indexFrameRunn]
            
         else: # Caso contrário, o personagem está parado
             frame = listFramesIdle[indexFrameIdle]
