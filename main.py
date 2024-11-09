@@ -18,7 +18,7 @@ fonteTempo = pygame.font.Font("Fonts/Energy Station.ttf", 80)
 folhaSpritesIdle = pygame.image.load("Personagem/2/Idle.png").convert_alpha()
 folhaSpritesWalk = pygame.image.load("Personagem/2/Walk.png").convert_alpha()
 folhaSpritesJump = pygame.image.load("Personagem/2/Attack.png").convert_alpha()
-folhaSpritesRunn = pygame.image.load("Personagem/2/Idle.png").convert_alpha()
+#folhaSpritesRunn = pygame.image.load("Personagem/2/Idle.png").convert_alpha()
 folhaSpritesDead = pygame.image.load("Personagem/2/Death.png").convert_alpha()
 
 # Define os frames
@@ -29,9 +29,9 @@ listFramesRunn = []
 listFramesDead = []
 
 # Cria os frames do personagem na lista de listFramesIdle
-for i in range(11):
+for i in range(4):
     # Pega um frame da folha de sprites na posição i * 0, 0 com tamanho 128x128
-    frame = folhaSpritesIdle.subsurface(i * 128, 0, 128, 128)
+    frame = folhaSpritesIdle.subsurface(i * 48, 0, 48, 48)
 
     # Redimensiona o frame para 2 vezes o tamanho original
     frame = pygame.transform.scale2x(frame)
@@ -39,24 +39,24 @@ for i in range(11):
     # Adiciona o frame na lista de listFramesIdle
     listFramesIdle.append(frame)
 
-for i in range(8):
-    frame = folhaSpritesWalk.subsurface(i * 128, 0, 128, 128)
-    frame = pygame.transform.scale(frame, (256, 256))
+for i in range(6):
+    frame = folhaSpritesWalk.subsurface(i * 48, 0, 48, 48)
+    frame = pygame.transform.scale(frame, (288, 288))
     listFramesWalk.append(frame)
 
-for i in range(9):
-    frame = folhaSpritesJump.subsurface(i * 128, 0, 128, 128)
-    frame = pygame.transform.scale(frame, (256, 256))
+for i in range(6):
+    frame = folhaSpritesJump.subsurface(i * 48, 0, 48, 48)
+    frame = pygame.transform.scale(frame, (288, 288))
     listFramesJump.append(frame)
 
-for i in range(8):
-    frame = folhaSpritesRunn.subsurface(i * 128, 0, 128, 128)
-    frame = pygame.transform.scale(frame, (256, 256))
-    listFramesRunn.append(frame)
+#for i in range(8):
+ #   frame = folhaSpritesRunn.subsurface(i * 128, 0, 128, 128)
+  #  frame = pygame.transform.scale(frame, (256, 256))
+   # listFramesRunn.append(frame)
 
-for i in range(4):
-    frame = folhaSpritesDead.subsurface(i * 128, 0, 128, 128)
-    frame = pygame.transform.scale(frame, (256, 256))
+for i in range(6):
+    frame = folhaSpritesDead.subsurface(i * 48, 0, 48, 48)
+    frame = pygame.transform.scale(frame, (288, 288))
     listFramesDead.append(frame)
 
 # Variaveis da animação do personagem parado
@@ -94,7 +94,7 @@ estaAndando = False # Define se o personagem está andando ou não
 
 # ASSETS PARA OS OBSTÁCULOS
 listaImagensObstaculos = [
-    pygame.image.load(f"assets/Weapons/Armas/Icon28_{i:02d}.png").convert_alpha() for i in range(1, 40)
+    pygame.image.load(f"Weapons/Armas/Icon28_{i:02d}.png").convert_alpha() for i in range(1, 40)
 ]
 # Lista de obstáculos que aparecerão na tela
 
@@ -108,7 +108,7 @@ for i in range(len(listaImagensObstaculos)):
     listaImagensObstaculos[i] = pygame.transform.rotate(listaImagensObstaculos[i], 35)
 
 # ICONES
-iconeVida = pygame.image.load("assets/icon/Icon12.png").convert_alpha()
+iconeVida = pygame.image.load("icon/Icon12.png").convert_alpha()
 iconeVida = pygame.transform.scale2x(iconeVida)
 
 # ASSETS PARA O PLANO DE FUNDO
