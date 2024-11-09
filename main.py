@@ -12,7 +12,7 @@ pygame.display.set_caption("Homeless Walker")
 dt = 0
 
 # Carrega a fonte a ser usada no jogo
-fonteTempo = pygame.font.Font("assets/Fonts/Energy Station.ttf", 80)
+fonteTempo = pygame.font.Font("Fonts/Energy Station.ttf", 80)
 
 # Carrega a spritesheet para nosso projeto
 folhaSpritesIdle = pygame.image.load("Personagem/2/Idle.png").convert_alpha()
